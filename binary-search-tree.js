@@ -1,7 +1,7 @@
 // Do not change this
 class TreeNode {
-  constructor(val) {
-    this.val = val;
+  constructor(value) {
+    this.value = value;
     this.left = null;
     this.right = null;
   }
@@ -9,42 +9,115 @@ class TreeNode {
 
 class BinarySearchTree {
 
-  constructor() {
-    // Your code here
+  constructor(root = null) {
+    this.root = root;
   }
 
-  insert(val, currentNode=this.root) {
-    // Your code here
+  insert(value, currNode = this.root) {
+    let newNode = new TreeNode(value);
+    if (!currNode) {
+      currNode = newNode;
+      this.root = currNode;
+      return;
+    }
+    while (currNode) {
+      if (currNode.value > newNode.value && !currNode.left) {
+        currNode.left = newNode;
+        currNode = currNode.left;
+        return;
+      }
+
+      else if (currNode.value > newNode.value && currNode.left) {
+        currNode = currNode.left;
+      }
+
+      else if (currNode.value < newNode.value && !currNode.right) {
+        currNode.right = newNode;
+        currNode = currNode.right;
+        return;
+      }
+
+      else if (currNode.value < newNode.value && currNode.right) {
+        currNode = currNode.right;
+      }
+    }
   }
 
-  search(val) {
-    // Your code here
+  search(value, currNode = this.root) {
+    while (currNode) {
+      if (currNode.value === value) return true;
+
+      if (currNode.value > value) {
+        currNode = currNode.left
+      }
+
+      else if (currNode.value < value) {
+        currNode = currNode.right
+      }
+    }
+    return false;
   }
 
 
-  preOrderTraversal(currentNode = this.root) {
-    // Your code here
+  preOrderTraversal(currNode = this.root) {
+    // Check the base case
+    if (!currNode) return;
+
+    // print the current Node BEFORE recursion
+    console.log(currNode.value);
+    this.preOrderTraversal(currNode.left);
+    this.preOrderTraversal(currNode.right);
   }
 
 
-  inOrderTraversal(currentNode = this.root) {
-    // Your code here
+  inOrderTraversal(currNode = this.root) {
+    // Check the base case
+    if (!currNode) return;
+
+    // print the current Node IN BETWEEN recursion
+    this.inOrderTraversal(currNode.left);
+    console.log(currNode.value);
+    this.inOrderTraversal(currNode.right);
   }
 
 
-  postOrderTraversal(currentNode = this.root) {
-    // Your code here
+  postOrderTraversal(currNode = this.root) {
+    // Check the base case
+    if (!currNode) return;
+
+    // print the current Node IN BETWEEN recursion
+    this.postOrderTraversal(currNode.left);
+    this.postOrderTraversal(currNode.right);
+    console.log(currNode.value);
   }
 
-    // Breadth First Traversal - Iterative
+  // Breadth First Traversal - Iterative
   breadthFirstTraversal() {
-    // your code here
+    let queue = [this.root]
+    let removed;
+    while (queue.length) {
+      removed = queue.shift()
+      console.log(removed.value);
+      if (removed.left) {
+        queue.push(removed.left)
+      }
+      if (removed.right) {
+        queue.push(removed.right)
+      }
+    }
   }
 
   // Depth First Traversal - Iterative
   depthFirstTraversal() {
-    // your code here
-}
+    let stack = [this.root]
+    let removed;
+    while (stack.length) {
+      removed = stack.pop()
+      console.log(removed.value);
+      if (removed.left) stack.push(removed.left);
+      if (removed.right) stack.push(removed.right);
+    }
+  }
 }
 
 module.exports = { BinarySearchTree, TreeNode };

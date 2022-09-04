@@ -25,12 +25,11 @@ describe('Binary Search Tree', () => {
     });
   });
 
-  describe('Part 1: insert(val)', () => {
+  describe('Part 1: insert(value)', () => {
     it('inserts values at the root of an empty BST', () => {
 
       bst.insert(4);
-
-      expect(bst.root.val).to.equal(4);
+      expect(bst.root.value).to.equal(4);
       expect(bst.root.left).to.equal(null);
       expect(bst.root.right).to.equal(null);
 
@@ -41,11 +40,11 @@ describe('Binary Search Tree', () => {
       bst.insert(4);
       bst.insert(2);
 
-      expect(bst.root.val).to.equal(4);
+      expect(bst.root.value).to.equal(4);
       expect(bst.root.right).to.equal(null);
 
       let leftNode = bst.root.left;
-      expect(leftNode.val).to.equal(2);
+      expect(leftNode.value).to.equal(2);
       expect(leftNode.left).to.equal(null);
       expect(leftNode.right).to.equal(null);
 
@@ -56,11 +55,11 @@ describe('Binary Search Tree', () => {
       bst.insert(4);
       bst.insert(6);
 
-      expect(bst.root.val).to.equal(4);
+      expect(bst.root.value).to.equal(4);
       expect(bst.root.left).to.equal(null);
 
       let rightNode = bst.root.right;
-      expect(rightNode.val).to.equal(6);
+      expect(rightNode.value).to.equal(6);
       expect(rightNode.left).to.equal(null);
       expect(rightNode.right).to.equal(null);
 
@@ -76,17 +75,17 @@ describe('Binary Search Tree', () => {
       bst.insert(5);
       bst.insert(7);
 
-      expect(bst.root.val).to.equal(4);
+      expect(bst.root.value).to.equal(4);
 
       let leftNode = bst.root.left;
-      expect(leftNode.val).to.equal(2);
-      expect(leftNode.left.val).to.equal(1);
-      expect(leftNode.right.val).to.equal(3);
+      expect(leftNode.value).to.equal(2);
+      expect(leftNode.left.value).to.equal(1);
+      expect(leftNode.right.value).to.equal(3);
 
       let rightNode = bst.root.right;
-      expect(rightNode.val).to.equal(6);
-      expect(rightNode.left.val).to.equal(5);
-      expect(rightNode.right.val).to.equal(7);
+      expect(rightNode.value).to.equal(6);
+      expect(rightNode.left.value).to.equal(5);
+      expect(rightNode.right.value).to.equal(7);
 
     });
 
@@ -101,31 +100,31 @@ describe('Binary Search Tree', () => {
       bst.insert(7);
 
       let currentNode = bst.root;
-      expect(currentNode.val).to.equal(1);
+      expect(currentNode.value).to.equal(1);
       expect(currentNode.left).to.equal(null);
 
       currentNode = currentNode.right;
-      expect(currentNode.val).to.equal(2);
+      expect(currentNode.value).to.equal(2);
       expect(currentNode.left).to.equal(null);
 
       currentNode = currentNode.right;
-      expect(currentNode.val).to.equal(3);
+      expect(currentNode.value).to.equal(3);
       expect(currentNode.left).to.equal(null);
 
       currentNode = currentNode.right;
-      expect(currentNode.val).to.equal(4);
+      expect(currentNode.value).to.equal(4);
       expect(currentNode.left).to.equal(null);
 
       currentNode = currentNode.right;
-      expect(currentNode.val).to.equal(5);
+      expect(currentNode.value).to.equal(5);
       expect(currentNode.left).to.equal(null);
 
       currentNode = currentNode.right;
-      expect(currentNode.val).to.equal(6);
+      expect(currentNode.value).to.equal(6);
       expect(currentNode.left).to.equal(null);
 
       currentNode = currentNode.right;
-      expect(currentNode.val).to.equal(7);
+      expect(currentNode.value).to.equal(7);
       expect(currentNode.left).to.equal(null);
 
     });
@@ -141,31 +140,31 @@ describe('Binary Search Tree', () => {
       bst.insert(1);
 
       let currentNode = bst.root;
-      expect(currentNode.val).to.equal(7);
+      expect(currentNode.value).to.equal(7);
       expect(currentNode.right).to.equal(null);
 
       currentNode = currentNode.left;
-      expect(currentNode.val).to.equal(6);
+      expect(currentNode.value).to.equal(6);
       expect(currentNode.right).to.equal(null);
 
       currentNode = currentNode.left;
-      expect(currentNode.val).to.equal(5);
+      expect(currentNode.value).to.equal(5);
       expect(currentNode.right).to.equal(null);
 
       currentNode = currentNode.left;
-      expect(currentNode.val).to.equal(4);
+      expect(currentNode.value).to.equal(4);
       expect(currentNode.right).to.equal(null);
 
       currentNode = currentNode.left;
-      expect(currentNode.val).to.equal(3);
+      expect(currentNode.value).to.equal(3);
       expect(currentNode.right).to.equal(null);
 
       currentNode = currentNode.left;
-      expect(currentNode.val).to.equal(2);
+      expect(currentNode.value).to.equal(2);
       expect(currentNode.right).to.equal(null);
 
       currentNode = currentNode.left;
-      expect(currentNode.val).to.equal(1);
+      expect(currentNode.value).to.equal(1);
       expect(currentNode.right).to.equal(null);
 
     });
